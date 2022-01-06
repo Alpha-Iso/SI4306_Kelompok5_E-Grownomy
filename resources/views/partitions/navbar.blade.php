@@ -15,10 +15,11 @@
                 @can('supplier')                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            My Store
+                            Menu Petani
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/{{ auth()->user()->username }}">Stall</a></li>
+                            <li><a class="dropdown-item" href="/lahan/show">Lahan Management</a></li>
                             <li><a class="dropdown-item" href="/product/show">Product Management</a></li>
                             <li><a class="dropdown-item" href="/customer_order/show/need_action">Customer Orders</a></li>
                         </ul>

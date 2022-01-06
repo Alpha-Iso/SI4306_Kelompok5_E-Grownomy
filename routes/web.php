@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddressController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LahanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CatalogController;
@@ -84,6 +85,16 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/wishlist/store/{id}', [WishlistController::class, 'store']);
     Route::get('/wishlist/show', [WishlistController::class, 'show']);
     Route::get('/wishlist/destroy/{id}', [WishlistController::class, 'destroy']); // cek session
+});
+
+// lahan management
+Route::group(['middleware' => ['auth', 'supplier']], function() {
+    Route::get('/lahan/create', [LahanController::class, 'create']);
+    Route::post('/lahan/store', [LahanController::class, 'store']);
+    Route::get('/lahan/show', [LahanController::class, 'show']);
+    Route::get('/lahan/edit/{id}', [LahanController::class, 'edit']); // cek session
+    Route::post('/lahan/update/{id}', [LahanController::class, 'update']);
+    Route::get('/lahan/destroy/{id}', [LahanController::class, 'destroy']); // cek session
 });
 
 // product management
