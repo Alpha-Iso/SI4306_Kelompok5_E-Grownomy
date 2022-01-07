@@ -11,6 +11,9 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerOrderController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Data_LahanController;
+use App\Http\Controllers\Data_UserController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -118,4 +121,15 @@ Route::group(['middleware' => ['auth', 'supplier']], function() {
     Route::get('/customer_order/cancel_cancel_request/{id}', [CustomerOrderController::class, 'cancel_cancel_request']); // cek session
     Route::get('/customer_order/accept_cancel_request/{id}', [CustomerOrderController::class, 'accept_cancel_request']); // cek session
     Route::get('/customer_order/reject_cancel_request/{id}', [CustomerOrderController::class, 'reject_cancel_request']); // cek session    
+});
+
+//admin management
+Route::group(['middleware' => ['auth', 'admin']], function() {
+    Route::get('/admin/dashboard', [DashboardController::class, 'index']);
+    Route::resource('/data_lahan/show', Data_LahanController::class);
+    Route::get('/data_lahan/edit/{id}', [Data_LahanController::class, 'edit']); 
+    Route::put('/data_lahan/{id}', [Data_LahanController::class, 'update']);
+    Route::resource('/data_user/show', Data_UserController::class);
+    Route::get('/data_user/edit/{id}', [Data_UserController::class, 'edit']); 
+    Route::put('/data_user/{id}', [Data_UserController::class, 'update']);
 });

@@ -18,13 +18,20 @@
                             Menu Petani
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/{{ auth()->user()->username }}">Kios Jual Panen</a></li>
+                            <li><a class="dropdown-item" href="/{{ auth()->user()->username }}">Stall</a></li>
                             <li><a class="dropdown-item" href="/lahan/show">Lahan Management</a></li>
-                            <li><a class="dropdown-item" href="/product/show">Produk Panen Management</a></li>
-                            <li><a class="dropdown-item" href="/customer_order/show/need_action">Pesanan Customer</a></li>
+                            <li><a class="dropdown-item" href="/product/show">Product Management</a></li>
+                            <li><a class="dropdown-item" href="/customer_order/show/need_action">Customer Orders</a></li>
                         </ul>
                     </li>
                 @endcan
+                @if (auth()->user()->role=="admin")                   
+                <li class="nav-item">
+                   <a class="nav-link" href="/admin/dashboard">
+                    Admin
+                    </a>
+                </li>
+                @endif
             </ul>
         </div>
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">

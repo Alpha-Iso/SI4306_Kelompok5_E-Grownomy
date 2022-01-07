@@ -61,7 +61,7 @@ class UserController extends Controller
 
     public function login() {
         return view('user/login', [
-            'title' => 'Product | Edit'
+            'title' => 'User | Login'
         ]);
     }
 
