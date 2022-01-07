@@ -1,5 +1,5 @@
 - Buat database "egrownomydb" di localhostphpmyadmin
-- ekstrak file zip beta egrownomy
+- ekstrak file zip project
 - jalankan git bash / powershell di folder ekstrakan
 - jalankan command dibawah :
 1. composer install
