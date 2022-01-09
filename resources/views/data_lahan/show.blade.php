@@ -52,6 +52,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                <a href="/data_lahan/cetak_pdf" class="btn btn-primary">Cetak Laporan Rekap</a>
             </div>
         </div>
     </section>

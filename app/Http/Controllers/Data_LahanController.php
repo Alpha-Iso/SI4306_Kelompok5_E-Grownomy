@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lahan;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class Data_LahanController extends Controller
 {
@@ -53,6 +54,12 @@ class Data_LahanController extends Controller
         $lahan->statlahan = $request['status_verifikasi'];
         $lahan->save();
         return redirect('/data_lahan/show');
+    }
+    public function cetak_pdf()
+    {
+ 
+    	$pdf = PDF::loadview('data_lahan.laporan_pdf',['lahan' => Lahan::orderBy('id', 'desc')->get()]);
+    	return $pdf->stream('laporan-lahan.pdf');
     }
 
     

@@ -132,4 +132,5 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::resource('/data_user/show', Data_UserController::class);
     Route::get('/data_user/edit/{id}', [Data_UserController::class, 'edit']); 
     Route::put('/data_user/{id}', [Data_UserController::class, 'update']);
+    Route::get('/data_lahan/cetak_pdf', [Data_LahanController::class, 'cetak_pdf']);
 });
