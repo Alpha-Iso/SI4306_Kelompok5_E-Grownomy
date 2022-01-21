@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lahan;
 use App\Models\User;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -17,11 +18,13 @@ class DashboardController extends Controller
     {
         $lahan = Lahan::all();
         $user = User::all();
+        $product = Product::all();
         return view('admin.dashboard', [
             'title' => 'Dashboard',
             'active' => 'dashboard',
             'lahan' => $lahan->count(),
-            'user' => $user->count()
+            'user' => $user->count(),
+            'product' => $product->count()
         ]);
     }
 

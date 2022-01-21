@@ -14,6 +14,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Data_LahanController;
 use App\Http\Controllers\Data_UserController;
+use App\Http\Controllers\Data_ProdukController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -133,4 +134,5 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/data_user/edit/{id}', [Data_UserController::class, 'edit']); 
     Route::put('/data_user/{id}', [Data_UserController::class, 'update']);
     Route::get('/data_lahan/cetak_pdf', [Data_LahanController::class, 'cetak_pdf']);
+    Route::resource('/data_produk/show', Data_ProdukController::class);
 });
